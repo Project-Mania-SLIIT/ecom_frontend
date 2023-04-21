@@ -1,16 +1,15 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashboardContent from './components/navBar';
+import DashboardContent from './pages/admin/dashboardLayout';
 
 function App() {
   return (
     <div className="App">
-           <DashboardContent />
       <Router>
         <Routes>
           {/* user routes */}
           <Route exact path="/">
-           {/* <Route exact path="/" element={<ProductList />} /> */}
+           <Route exact path="/" element={<DashboardContent />} />
           </Route>
 
         {/* 404 page */}
