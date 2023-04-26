@@ -8,8 +8,8 @@ function App() {
       <Router>
         <Routes>
           {/* user routes */}
-          <Route exact path="/">
-           <Route exact path="/" element={<DashboardContent />} />
+          <Route exact path="/seller">
+           <Route exact path="/seller/*" element={<DashboardContent />} />
           </Route>
 
         {/* 404 page */}
