@@ -10,6 +10,9 @@ function App() {
       <Router>
         <Routes>
           {/* user routes */}
+          <Route exact path="/seller">
+           <Route exact path="/seller/*" element={<DashboardContent />} />
+           </Route>
           <Route exact path="/">
           <Route exact path="home" element={<DashboardLayout />} />
            <Route exact path="admin" element={<DashboardContent />} />
