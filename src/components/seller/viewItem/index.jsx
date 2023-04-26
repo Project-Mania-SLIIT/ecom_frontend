@@ -1,28 +1,11 @@
 import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const useStyles = makeStyles((theme) => ({
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  field: {
-    margin: theme.spacing(1),
-    minWidth: 300,
-  },
-  button: {
-    margin: theme.spacing(2),
-  },
-}));
-
 const ViewItem = () => {
-  const classes = useStyles();
-
   const [itemCode, setItemCode] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -138,7 +121,7 @@ const ViewItem = () => {
 
   return (
     <Box>
-      <form className={classes.form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <Box>
           <img
             src={image}
@@ -148,7 +131,6 @@ const ViewItem = () => {
         </Box>
         <TextField
           sx={{ width: "70%" }}
-          className={classes.field}
           label="Item Code"
           name="itemCode"
           value={itemCode}
@@ -159,7 +141,6 @@ const ViewItem = () => {
         />
         <TextField
           sx={{ width: "70%" }}
-          className={classes.field}
           label="Name"
           name="name"
           value={name}
@@ -170,7 +151,6 @@ const ViewItem = () => {
         />
         <TextField
           sx={{ width: "70%" }}
-          className={classes.field}
           label="Price"
           name="price"
           value={price}
@@ -181,7 +161,6 @@ const ViewItem = () => {
         />
         <TextField
           sx={{ width: "70%" }}
-          className={classes.field}
           label="Quantity"
           name="quantity"
           value={quantity}
@@ -192,7 +171,6 @@ const ViewItem = () => {
         />
         <TextField
           sx={{ width: "70%" }}
-          className={classes.field}
           label="Description"
           name="description"
           value={description}
@@ -267,7 +245,6 @@ const ViewItem = () => {
         >
           <label hidden={!isDisable}>
             <Button
-              className={classes.button}
               variant="contained"
               color="primary"
               type="submit"
@@ -278,7 +255,6 @@ const ViewItem = () => {
           </label>
           <label hidden={isDisable}>
             <Button
-              className={classes.button}
               variant="contained"
               color="primary"
               type="submit"
@@ -289,7 +265,6 @@ const ViewItem = () => {
           </label>
           <label hidden={isDisable}>
             <Button
-              className={classes.button}
               variant="contained"
               color="primary"
               type="submit"

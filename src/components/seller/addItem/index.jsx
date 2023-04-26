@@ -1,28 +1,26 @@
 import React, { useState } from "react";
-import { makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const useStyles = makeStyles((theme) => ({
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  field: {
-    margin: theme.spacing(1),
-    minWidth: 300,
-  },
-  button: {
-    margin: theme.spacing(2),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   form: {
+//     display: "flex",
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   field: {
+// margin: theme.spacing(1),
+// minWidth: 300,
+//   },
+//   button: {
+//     margin: theme.spacing(2),
+//   },
+// }));
 
 const AddItem = () => {
-  const classes = useStyles();
-
   const [itemCode, setItemCode] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -126,10 +124,9 @@ const AddItem = () => {
 
   return (
     <Box>
-      <form className={classes.form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <TextField
-          sx={{ width: "70%" }}
-          className={classes.field}
+          sx={{ width: "70%", marginTop: 2 }}
           label="Item Code"
           name="itemCode"
           value={itemCode}
@@ -138,8 +135,7 @@ const AddItem = () => {
           helperText={formErrors["itemCode"]}
         />
         <TextField
-          sx={{ width: "70%" }}
-          className={classes.field}
+          sx={{ width: "70%", marginTop: 2 }}
           label="Name"
           name="name"
           value={name}
@@ -148,8 +144,7 @@ const AddItem = () => {
           helperText={formErrors["name"]}
         />
         <TextField
-          sx={{ width: "70%" }}
-          className={classes.field}
+          sx={{ width: "70%", marginTop: 2 }}
           label="Price"
           name="price"
           value={price}
@@ -158,8 +153,7 @@ const AddItem = () => {
           helperText={formErrors["price"]}
         />
         <TextField
-          sx={{ width: "70%" }}
-          className={classes.field}
+          sx={{ width: "70%", marginTop: 2 }}
           label="Quantity"
           name="quantity"
           value={quantity}
@@ -168,8 +162,7 @@ const AddItem = () => {
           helperText={formErrors["quantity"]}
         />
         <TextField
-          sx={{ width: "70%" }}
-          className={classes.field}
+          sx={{ width: "70%", marginTop: 2 }}
           label="Description"
           name="description"
           value={description}
@@ -187,7 +180,7 @@ const AddItem = () => {
             bgcolor: "background.paper",
             borderRadius: 1,
             mb: 3,
-            justifyContent: "flex-end",
+            justifyContent: "center",
           }}
         >
           <Box>
@@ -229,12 +222,7 @@ const AddItem = () => {
             </Button>
           </label>
         </Box>
-        <Button
-          className={classes.button}
-          variant="contained"
-          color="primary"
-          type="submit"
-        >
+        <Button variant="contained" color="primary" type="submit">
           Add Product
         </Button>
       </form>
