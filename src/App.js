@@ -4,6 +4,7 @@ import DashboardContent from './pages/admin/dashboardLayout';
 import DashboardLayout from './pages/user/dashboardLayout';
 import SingleProduct from './pages/user/singleProduct';
 import ContactUs from'./pages/user/contactUs';
+import Login from './pages/common/login';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
           </Route>
           <Route exact path="single" element={<SingleProduct />} />
           <Route exact path="contact" element={<ContactUs />} />
+          <Route exact path="login" element={<Login />} />
 
         {/* 404 page */}
         {/* <Route path="*" element={<Error404/>} /> */}
