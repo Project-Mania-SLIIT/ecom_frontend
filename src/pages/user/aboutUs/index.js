@@ -9,137 +9,69 @@ const index = () => {
       <div className="container">
         <br />
 
-        <h1>
+        <h1 className="fst-italic">
           <strong>WHO WE ARE</strong>
         </h1>
         <br />
-        <br />
         <section>
           <div className="row">
-            <div className="col-md-6 gx-5 mb-4">
+            <div className=" col-md-5 gx-5 mb-2">
               <div
-                className="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+                className=" bg-image hover-overlay ripple shadow-2-strong rounded-6 "
                 data-mdb-ripple-color="light"
               >
                 <img
                   src="https://www.pcclean.io/wp-content/gallery/library-hd-wallpapers/919004.jpg"
-                  className="img-fluid"
+                  className="img-fluid "
                 />
-                <a href="#!">
-                  <div
-                    className="mask"
-                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                  />
-                </a>
               </div>
             </div>
-            <div className="col-md-6 gx-5 mb-4">
-              <h3>
-                <strong>
-                  We believe a world-class library should be a direct reflection
-                  of the exquisite nature of the content we preserve.
-                </strong>
-              </h3>
-              <p>
-                asdjfikfjdsklfdsjklfdsjkldfjkldfsjdfskljdfslkjdsf
-                klsdjfkldsjlkfdsjlk;dfsjlkdfsjlkdsf
-                sdjkldsfjdfskljdflskjdfslkjkdfs kl;sfjlkfdsjkdfskdfsklfdsjkdsf
-              </p>
-            </div>
-          </div>
-        </section>
-        {/* Section: Content*/}
-        <hr className="my-5" />
-        {/*Section: Content*/}
-        <section className="text-center">
-          <h4 className="mb-5">
-            <strong>What We Provide</strong>
-          </h4>
-          <div className="row">
-            <div className="col-lg-4 col-md-12 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-overlay ripple"
-                  data-mdb-ripple-color="light"
-                >
-                  <img
-                    src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=30&auto=format&w=600&h=400&fit=crop&dpr=2"
-                    className="img-fluid"
-                  />
-                  <a href="#!">
-                    <div
-                      className="mask"
-                      style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                    />
-                  </a>
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <strong>Books</strong>
-                  </h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-overlay ripple"
-                  data-mdb-ripple-color="light"
-                >
-                  <img
-                    src="https://c0.wallpaperflare.com/preview/422/190/338/announcement-article-articles-copy-coverage.jpg"
-                    className="img-fluid"
-                  />
-                  <div
-                    className="mask"
-                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                  />
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <strong>Articles</strong>
-                  </h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 mb-4">
-              <div className="card">
-                <div
-                  className="bg-image hover-overlay ripple"
-                  data-mdb-ripple-color="light"
-                >
-                  <img
-                    src="https://saylordotorg.github.io/text_understanding-media-and-culture-an-introduction-to-mass-communication/section_08/9c8126a9510afacdff08bffc2a09c4d3.jpg"
-                    className="img-fluid"
-                  />
-                  <div
-                    className="mask"
-                    style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-                  />
-                </div>
-                <div className="card-body">
-                  <h5 className="card-title">
-                    <strong>Magazines</strong>
-                  </h5>
-                  <p className="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                </div>
-              </div>
+            <div className="col-md-15 gx-5 mb-4">
+              <h5>
+                It is a Online Pharmacy,
+                ayurvedic store,Health Store - Its a one stop shop that offers
+                effective Medical products, healthcare solutions to all those
+                individuals who are health enthusiasts. Providing over 20,000
+                health and ayurvedic herbal medicines online at the lowest
+                guaranteed price - with the highest pharmaceutical standards. We
+                offer premium and the largest range of original health and
+                fitness products across various categories and leading brands.
+                We dedicate this portal to all those people who are keen to
+                purchase healthcare products online. The aim is to supply
+                cheaper products to everybody who has access to the internet and
+                deliver those products to their door. Through harnessing the
+                power of the internet and supplying you directly, this website
+                will save up to 75% off the cost of many well known products
+                found in your local Medical Shop. We enjoy comprehensive understanding of the shopper’s
+                needs and make our best efforts to cater them with an extensive
+                choice of both Srilankan and globalbrands Offering a superior
+                buying experience, we endow our esteemed customers with the best
+                prices in market. we strive to achieve the highest level of
+                customer satisfaction. Equipped with a well-informed team, using
+                state of the art E-commerce platform, and prompt customer
+                support system, we aim to offer our customers with unparalleled
+                services. We proudly manage our own warehousing operations that
+                facilitate us to meet the daily orders of our customers and
+                attain fastest shipping. We believe in adding new selections for
+                our customers and making things easier to compare, find and
+                discover varied products via our services. online medical store
+                offers a variety of key services includingayurvedic herbal
+                pharmacy and over-the-counter medicines, vitamins and health
+                supplements, family planning , ayurvedic herbal beauty cosmetic
+                products, ayurvedic herbal medicine ,toiletries, electrical
+                items and baby care products. The service is supervised by fully
+                qualified pharmacists who are available to discuss symptoms and
+                issues about medical problems in a confidential environment
+                through email and oversee all medicinal purchases. So, make a
+                move and Happy Shopping !!!!
+              </h5>
             </div>
           </div>
         </section>
       </div>
-      <Footer />
+
+        <Footer />
+   
     </div>
   );
 };
