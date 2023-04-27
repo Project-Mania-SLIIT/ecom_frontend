@@ -1,10 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import DashboardContent from "./pages/admin/dashboardLayout";
-import DashboardLayout from "./pages/user/dashboardLayout";
-import SingleProduct from "./pages/user/singleProduct";
-import ContactUs from "./pages/user/contactUs";
+import DashboardContent from './pages/admin/dashboardLayout';
+import DashboardLayout from './pages/user/dashboardLayout';
+import SingleProduct from './pages/user/singleProduct';
+import ContactUs from'./pages/user/contactUs';
+import Login from './pages/common/login';
 import AboutUs from "./pages/user/aboutUs";
+
 function App() {
   return (
     <div className="App">
@@ -19,8 +21,13 @@ function App() {
             <Route exact path="admin" element={<DashboardContent />} />
           </Route>
           <Route exact path="single" element={<SingleProduct />} />
+
+          <Route exact path="contact" element={<ContactUs />} />
+          <Route exact path="login" element={<Login />} />
+
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
+
 
           {/* 404 page */}
           {/* <Route path="*" element={<Error404/>} /> */}
