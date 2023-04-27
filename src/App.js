@@ -7,6 +7,7 @@ import ContactUs from "./pages/user/contactUs";
 import Login from "./pages/common/login";
 import AboutUs from "./pages/user/aboutUs";
 import AllProducts from "./pages/user/allProducts";
+import ShoppingCart from "./pages/user/shoppingCart";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
           <Route exact path="allProducts" element={<AllProducts />} />
+          <Route exact path="shoppingCart" element={<ShoppingCart />} />
 
           {/* 404 page */}
           {/* <Route path="*" element={<Error404/>} /> */}
