@@ -45,7 +45,7 @@ const Navbar = () => {
           <a className="text-reset me-3" href="login">
           <i class="fas fa-arrow-right-to-bracket"></i>
             </a>
-            <a className="text-reset me-3" href="#">
+            <a className="text-reset me-3" href="shoppingCart">
               <i className="fas fa-shopping-cart" />
             </a>
             <div className="dropdown">
