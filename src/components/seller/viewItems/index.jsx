@@ -6,6 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { IconButton } from "@mui/material";
+import { ReactComponent as ArrowIcon } from "../../../assets/icons/arrow.svg";
+import { ReactComponent as DeleteIcon } from "../../../assets/icons/delete-icon.svg";
+import { ReactComponent as EditIcon } from "../../../assets/icons/edit-icon.svg";
+
 //
 export default function ViewItems() {
   //

@@ -15,12 +15,18 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
 import MenuIcon from "@mui/icons-material/Menu";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "./listItems";
+import TextField from "@mui/material/TextField";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Avatar from "@mui/material/Avatar";
 import ViewItems from "../../../components/seller/viewItems";
+import { useLocation } from "react-router-dom";
+import AddItem from "../../../components/seller/addItem";
+import ViewItem from "../../../components/seller/viewItem";
 
 function Copyright(props) {
   return (
@@ -89,10 +95,42 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 function DashboardContent() {
+  const location = useLocation();
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [pathName, setPathName] = React.useState("/");
+  const isopen = Boolean(anchorEl);
+  const handleClick = (event) => {
+    console.log(event.currentTarget);
+    setAnchorEl(event.currentTarget);
+  };
+  //
+  const renderComponent = () => {
+    switch (pathName) {
+      case "dashboard":
+        return <Box></Box>;
+      case "viewitems":
+        return <ViewItems />;
+      case "additem":
+        return <AddItem />;
+      case "viewitem":
+        return <ViewItem />;
+      default:
+        return null;
+    }
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  //
+  React.useEffect(() => {
+    const URLPath = location.pathname.split("/")[2];
+    setPathName(URLPath);
+  }, [location.pathname]);
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -136,7 +174,14 @@ function DashboardContent() {
                 alignItems: "center",
               }}
             >
-              <IconButton color="inherit">
+              <IconButton
+                color="inherit"
+                id="basic-button"
+                aria-controls={isopen ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={isopen ? "true" : undefined}
+                onClick={handleClick}
+              >
                 <Typography
                   color="inherit"
                   component="h1"
@@ -147,6 +192,19 @@ function DashboardContent() {
                 </Typography>
                 <ArrowDropDownIcon />
               </IconButton>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={isopen}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
               <Avatar
                 sx={{
                   width: 50,
@@ -200,10 +258,10 @@ function DashboardContent() {
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
-                height: 240,
+                height: "fit-content",
               }}
             >
-              <ViewItems />
+              {renderComponent()}
             </Paper>
             <Copyright sx={{ pt: 4 }} />
           </Container>
