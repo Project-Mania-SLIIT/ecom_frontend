@@ -1,6 +1,9 @@
 import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
+import AddFeedbackModal from "../../../components/modals/Feedback/AddFeedbackModal";
+import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"
+import shoppingCart from "../shoppingCart";
 
 const index = () => {
   return (
@@ -12,7 +15,7 @@ const index = () => {
           {/*Grid column*/}
           <div className="col-md-6 mb-4">
             <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg"
+              src={baraka}
               className="img-fluid"
               alt=""
             />
@@ -24,7 +27,7 @@ const index = () => {
             <div className="p-4">
               <div className="mb-3">
                 <a href>
-                  <span className="badge bg-dark me-1">Category 2</span>
+                  <span className="badge bg-dark me-1">Medicines</span>
                 </a>
                 <a href>
                   <span className="badge bg-info me-1">New</span>
@@ -34,13 +37,10 @@ const index = () => {
                 </a>
               </div>
               <p className="lead">
-                <span className="me-1">
-                  <del>$200</del>
-                </span>
-                <span>$100</span>
+                <span>Rs.1000.00</span>
               </p>
               <strong>
-                <p style={{ fontSize: "20px" }}>Description</p>
+                <p style={{ fontSize: "20px" }}>Baraka Black Seed Oil</p>
               </strong>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
@@ -73,13 +73,11 @@ const index = () => {
         <div className="row d-flex justify-content-center">
           {/*Grid column*/}
           <div className="col-md-6 text-center">
-            <h4 className="my-4 h4">Additional information</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              suscipit modi sapiente illo soluta odit voluptates, quibusdam
-              officia. Neque quibusdam quas a quis porro? Molestias illo neque
-              eum in laborum.
-            </p>
+            <AddFeedbackModal/>
+          {/* <button className="btn btn-primary ms-1" type="submit">
+                  Leave a review
+                  <i className="fa fa-commenting ms-1" />
+                </button> */}
           </div>
           {/*Grid column*/}
         </div>

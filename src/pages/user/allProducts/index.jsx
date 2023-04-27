@@ -2,6 +2,12 @@ import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
+import kohomba from "../../../assets/images/khomba-herbal-soap-original-70g.jpg"
+import sudantha from "../../../assets/images/link-sudantha_1.jpg"
+import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"
+import fadna from "../../../assets/images/fadna.jpg"
+import natures from "../../../assets/images/nature-s-secrets-l.jpg"
+
 const allProducts = () => {
   return (
     <div>
@@ -59,17 +65,17 @@ const allProducts = () => {
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Shirts
+                      Medicines
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Sport wears
+                      Herbal Cosmetics
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Outwears
+                      Toiletries
                     </a>
                   </li>
                 </ul>
@@ -87,18 +93,18 @@ const allProducts = () => {
           <section>
             <div className="text-center">
               <div className="row">
-                <div className="col-lg-3 col-md-6 mb-4">
+              <div className="col-lg-3 col-md-6 mb-4">
                   <div className="card">
                     <div
                       className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                       data-mdb-ripple-color="light"
                     >
                       <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                        src={baraka}
                         className="w-100"
                       />
-                      <a href="#!">
-                        <div className="mask">
+                      <a href="single">
+                      <div className="mask">
                           <div className="d-flex justify-content-start align-items-end h-100">
                             <h5>
                               <span className="badge bg-dark ms-2">NEW</span>
@@ -117,12 +123,12 @@ const allProducts = () => {
                     </div>
                     <div className="card-body">
                       <a href className="text-reset">
-                        <h5 className="card-title mb-2">Denim shirt</h5>
+                        <h5 className="card-title mb-2">Baraka Black Seed Oil</h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Shirt</p>
+                        <p>Oil</p>
                       </a>
-                      <h6 className="mb-3 price">120$</h6>
+                      <h6 className="mb-3 price">Rs.1000.00</h6>
                     </div>
                   </div>
                 </div>
@@ -133,7 +139,7 @@ const allProducts = () => {
                       data-mdb-ripple-color="light"
                     >
                       <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                        src={sudantha}
                         className="w-100"
                       />
                       <a href="#!">
@@ -158,12 +164,12 @@ const allProducts = () => {
                     </div>
                     <div className="card-body">
                       <a href className="text-reset">
-                        <h5 className="card-title mb-2">Sweatshirt</h5>
+                        <h5 className="card-title mb-2">Link Sudantha</h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Sport wear</p>
+                        <p>Toothpaste</p>
                       </a>
-                      <h6 className="mb-3 price">139$</h6>
+                      <h6 className="mb-3 price">Rs.200.00</h6>
                     </div>
                   </div>
                 </div>
@@ -174,10 +180,17 @@ const allProducts = () => {
                       data-mdb-ripple-color="light"
                     >
                       <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg"
+                        src={kohomba}
                         className="w-100"
                       />
-                      <a href="#!">
+                      <a href="#">
+                        {/* <div className="mask">
+                          <div className="d-flex justify-content-start align-items-end h-100">
+                            <h5>
+                              <span className="badge bg-dark ms-2">NEW</span>
+                            </h5>
+                          </div>
+                        </div> */}
                         <div className="hover-overlay">
                           <div
                             className="mask"
@@ -190,12 +203,12 @@ const allProducts = () => {
                     </div>
                     <div className="card-body">
                       <a href className="text-reset">
-                        <h5 className="card-title mb-2">Grey blouse</h5>
+                        <h5 className="card-title mb-2">Kohomba</h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Sport wear</p>
+                        <p>Soap</p>
                       </a>
-                      <h6 className="mb-3 price">99$</h6>
+                      <h6 className="mb-3 price">Rs.120.00</h6>
                     </div>
                   </div>
                 </div>
@@ -206,7 +219,7 @@ const allProducts = () => {
                       data-mdb-ripple-color="light"
                     >
                       <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg"
+                        src={fadna}
                         className="w-100"
                       />
                       <a href="#!">
@@ -231,15 +244,12 @@ const allProducts = () => {
                     </div>
                     <div className="card-body">
                       <a href className="text-reset">
-                        <h5 className="card-title mb-2">Black jacket</h5>
+                        <h5 className="card-title mb-2">Fadna Herbal Tea</h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Outwear</p>
+                        <p>Tea</p>
                       </a>
-                      <h6 className="mb-3 price">
-                        <s>199$</s>
-                        <strong className="ms-2 sale">179$</strong>
-                      </h6>
+                      <h6 className="mb-3 price">Rs.800.00</h6>
                     </div>
                   </div>
                 </div>
@@ -252,7 +262,7 @@ const allProducts = () => {
                       data-mdb-ripple-color="light"
                     >
                       <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                        src={natures}
                         className="w-100"
                       />
                       <a href="#!">
@@ -268,115 +278,12 @@ const allProducts = () => {
                     </div>
                     <div className="card-body">
                       <a href className="text-reset">
-                        <h5 className="card-title mb-2">Sweatshirt</h5>
+                        <h5 className="card-title mb-2">Natures Secret Body Butter</h5>
                       </a>
                       <a href className="text-reset ">
-                        <p>Sport wear</p>
+                        <p>Cream</p>
                       </a>
-                      <h6 className="mb-3 price">139$</h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg"
-                        className="w-100"
-                      />
-                      <a href="#!">
-                        <div className="mask">
-                          <div className="d-flex justify-content-start align-items-end h-100">
-                            <h5>
-                              <span className="badge bg-success ms-2">Eco</span>
-                            </h5>
-                          </div>
-                        </div>
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Grey blouse</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Sport wear</p>
-                      </a>
-                      <h6 className="mb-3 price">99$</h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg"
-                        className="w-100"
-                      />
-                      <a href="#!">
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Black jacket</h5>
-                      </a>
-                      <a href className="text-reset">
-                        <p>Outwear</p>
-                      </a>
-                      <h6 className="mb-3 price">199$</h6>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <div
-                      className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
-                        className="w-100"
-                      />
-                      <a href="#!">
-                        <div className="hover-overlay">
-                          <div
-                            className="mask"
-                            style={{
-                              backgroundColor: "rgba(251, 251, 251, 0.15)",
-                            }}
-                          />
-                        </div>
-                      </a>
-                    </div>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">Denim shirt</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>Shirt</p>
-                      </a>
-                      <h6 className="mb-3 price">120$</h6>
+                      <h6 className="mb-3 price">Rs.1200.00</h6>
                     </div>
                   </div>
                 </div>

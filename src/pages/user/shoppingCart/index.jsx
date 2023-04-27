@@ -14,6 +14,7 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"
 
 export default function shoppingCart() {
   return (
@@ -37,7 +38,7 @@ export default function shoppingCart() {
                     <div className="d-flex align-items-center mb-5">
                       <div className="flex-shrink-0">
                         <MDBCardImage
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
+                          src={baraka}
                           fluid
                           style={{ width: "150px" }}
                           alt="Generic placeholder image"
@@ -49,14 +50,14 @@ export default function shoppingCart() {
                           <MDBIcon fas icon="times" />
                         </a>
                         <MDBTypography tag="h5" className="text-primary">
-                          Samsung Galaxy M11 64GB
+                        Baraka Black Seed Oil
                         </MDBTypography>
                         <MDBTypography tag="h6" style={{ color: "#9e9e9e" }}>
-                          Color: white
+                          Oil
                         </MDBTypography>
 
                         <div className="d-flex align-items-center">
-                          <p className="fw-bold mb-0 me-5 pe-3">799$</p>
+                          <p className="fw-bold mb-0 me-5 pe-3">Rs.1000.00</p>
 
                           <div className="def-number-input number-input safari_only">
                             <button className="minus"></button>
@@ -64,82 +65,6 @@ export default function shoppingCart() {
                               className="quantity fw-bold text-black"
                               min={0}
                               defaultValue={1}
-                              type="number"
-                            />
-                            <button className="plus"></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="d-flex align-items-center mb-5">
-                      <div className="flex-shrink-0">
-                        <MDBCardImage
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/6.webp"
-                          fluid
-                          style={{ width: "150px" }}
-                          alt="Generic placeholder image"
-                        />
-                      </div>
-
-                      <div className="flex-grow-1 ms-3">
-                        <a href="#!" className="float-end text-black">
-                          <MDBIcon fas icon="times" />
-                        </a>
-                        <MDBTypography tag="h5" className="text-primary">
-                          Headphones Bose 35 II
-                        </MDBTypography>
-                        <MDBTypography tag="h6" style={{ color: "#9e9e9e" }}>
-                          Color: red
-                        </MDBTypography>
-
-                        <div className="d-flex align-items-center">
-                          <p className="fw-bold mb-0 me-5 pe-3">239$</p>
-
-                          <div className="def-number-input number-input safari_only">
-                            <button className="minus"></button>
-                            <input
-                              className="quantity fw-bold text-black"
-                              min={0}
-                              defaultValue={1}
-                              type="number"
-                            />
-                            <button className="plus"></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="d-flex align-items-center mb-5">
-                      <div className="flex-shrink-0">
-                        <MDBCardImage
-                          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
-                          fluid
-                          style={{ width: "150px" }}
-                          alt="Generic placeholder image"
-                        />
-                      </div>
-
-                      <div className="flex-grow-1 ms-3">
-                        <a href="#!" className="float-end text-black">
-                          <MDBIcon fas icon="times" />
-                        </a>
-                        <MDBTypography tag="h5" className="text-primary">
-                          iPad 9.7 6-gen WiFi 32GB
-                        </MDBTypography>
-                        <MDBTypography tag="h6" style={{ color: "#9e9e9e" }}>
-                          Color: rose pink
-                        </MDBTypography>
-
-                        <div className="d-flex align-items-center">
-                          <p className="fw-bold mb-0 me-5 pe-3">659$</p>
-
-                          <div className="def-number-input number-input safari_only">
-                            <button className="minus"></button>
-                            <input
-                              className="quantity fw-bold text-black"
-                              min={0}
-                              defaultValue={2}
                               type="number"
                             />
                             <button className="plus"></button>
@@ -159,7 +84,7 @@ export default function shoppingCart() {
 
                     <div className="d-flex justify-content-between px-x">
                       <p className="fw-bold">Discount:</p>
-                      <p className="fw-bold">95$</p>
+                      <p className="fw-bold">50.00</p>
                     </div>
                     <div
                       className="d-flex justify-content-between p-2 mb-2"
@@ -169,7 +94,7 @@ export default function shoppingCart() {
                         Total:
                       </MDBTypography>
                       <MDBTypography tag="h5" className="fw-bold mb-0">
-                        2261$
+                        950.00
                       </MDBTypography>
                     </div>
                   </MDBCol>
@@ -187,7 +112,7 @@ export default function shoppingCart() {
                         label="Card number"
                         type="text"
                         size="lg"
-                        defaultValue="1234 5678 9012 3457"
+                        placeholder="1234 5678 9012 3457"
                       />
 
                       <MDBInput
@@ -195,7 +120,7 @@ export default function shoppingCart() {
                         label="Name on card"
                         type="text"
                         size="lg"
-                        defaultValue="John Smith"
+                        placeholder="John Smith"
                       />
 
                       <MDBRow>
@@ -207,20 +132,18 @@ export default function shoppingCart() {
                             size="lg"
                             minLength="7"
                             maxLength="7"
-                            defaultValue="01/22"
                             placeholder="MM/YYYY"
                           />
                         </MDBCol>
                         <MDBCol md="6" className="mb-5">
                           <MDBInput
                             className="mb-4"
-                            label="Cvv"
+                            label="CVV"
                             type="text"
                             size="lg"
                             minLength="3"
                             maxLength="3"
                             placeholder="&#9679;&#9679;&#9679;"
-                            defaultValue="&#9679;&#9679;&#9679;"
                           />
                         </MDBCol>
                       </MDBRow>
@@ -239,7 +162,7 @@ export default function shoppingCart() {
                         className="fw-bold mb-5"
                         style={{ position: "absolute", bottom: "0" }}
                       >
-                        <a href="home">
+                        <a href="allProducts">
                           <MDBIcon fas icon="angle-left me-2" />
                           Back to shopping
                         </a>

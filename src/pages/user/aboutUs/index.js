@@ -15,7 +15,8 @@ const index = () => {
         <br />
         <section>
           <div className="row">
-            <div className=" col-md-5 gx-5 mb-2">
+          <div className="col-md-4"></div>
+            <div className="col-md-4 d-flex justify-content-center">
               <div
                 className=" bg-image hover-overlay ripple shadow-2-strong rounded-6 "
                 data-mdb-ripple-color="light"
@@ -26,7 +27,8 @@ const index = () => {
                 />
               </div>
             </div>
-            <div className="col-md-15 gx-5 mb-4">
+            <div className="col-md-15 gx-5 mb-4 text-justify">
+              <br/>
               <h5>
                 It is a Online Pharmacy,
                 ayurvedic store,Health Store - Its a one stop shop that offers

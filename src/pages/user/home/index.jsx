@@ -10,6 +10,14 @@ import {
   MDBRow,
   MDBCardTitle,
 } from "mdb-react-ui-kit";
+import kohomba from "../../../assets/images/khomba-herbal-soap-original-70g.jpg"
+import sudantha from "../../../assets/images/link-sudantha_1.jpg"
+import baraka from "../../../assets/images/black_seed_oil_53bf601c6b24e_1.jpg"
+import fadna from "../../../assets/images/fadna.jpg"
+import natures from "../../../assets/images/nature-s-secrets-l.jpg"
+import cs1 from "../../../assets/images/carousel1.jpg"
+import cs2 from "../../../assets/images/carousel2.jpg"
+import cs3 from "../../../assets/images/carousel3.jpg"
 
 export default function Home() {
   return (
@@ -19,7 +27,7 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={1}
-            src="https://mdbootstrap.com/img/new/slides/041.jpg"
+            src={cs1}
             alt="..."
           >
             <h5>First slide label</h5>
@@ -28,7 +36,7 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={2}
-            src="https://mdbootstrap.com/img/new/slides/042.jpg"
+            src={cs2}
             alt="..."
           >
             <h5>Second slide label</h5>
@@ -37,7 +45,7 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={3}
-            src="https://mdbootstrap.com/img/new/slides/043.jpg"
+            src={cs3}
             alt="..."
           >
             <h5>Third slide label</h5>
@@ -58,7 +66,7 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
+                src={kohomba}
                 alt="..."
                 position="top"
               />
@@ -75,7 +83,7 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/042.webp"
+                src={sudantha}
                 alt="..."
                 position="top"
               />
@@ -88,7 +96,7 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/043.webp"
+                src={baraka}
                 alt="..."
                 position="top"
               />
@@ -104,7 +112,7 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/044.webp"
+                src={fadna}
                 alt="..."
                 position="top"
               />
@@ -121,7 +129,7 @@ export default function Home() {
           <MDBCol>
             <MDBCard className="h-100">
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/044.webp"
+                src={natures}
                 alt="..."
                 position="top"
               />
