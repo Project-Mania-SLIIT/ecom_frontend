@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import axios from "axios";
 
 // const useStyles = makeStyles((theme) => ({
 //   form: {
@@ -26,6 +27,7 @@ const AddItem = () => {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [formErrors, setFormErrors] = useState({});
 
@@ -43,6 +45,9 @@ const AddItem = () => {
         break;
       case "quantity":
         setQuantity(value);
+        break;
+      case "category":
+        setCategory(value);
         break;
       case "description":
         setDescription(value);
@@ -85,40 +90,53 @@ const AddItem = () => {
       errors["quantity"] = "Please enter a valid quantity (e.g. 10)";
     }
 
+    if (!category) {
+      formIsValid = false;
+      errors["category"] = "Please enter a category";
+    }
+
     if (!description) {
       formIsValid = false;
       errors["description"] = "Please enter a description";
     }
 
-    if (!image) {
-      formIsValid = false;
-      errors["image"] = "Please enter an image URL";
-    }
+    // if (!image) {
+    //   formIsValid = false;
+    //   errors["image"] = "Please enter an image URL";
+    // }
 
     setFormErrors(errors);
     return formIsValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      // Submit form data to server
-      console.log({
-        itemCode,
-        name,
-        price,
-        quantity,
-        description,
-        image,
-      });
-      // Clear form fields
-      setItemCode("");
-      setName("");
-      setPrice("");
-      setQuantity("");
-      setDescription("");
-      setImage("");
-      setFormErrors({});
+      console.log("Form submitted");
+      await axios
+        .post("http://localhost:5001/supplier/6448b8c733f5af0064c7096b", {
+          itemCode,
+          name,
+          price,
+          quantity,
+          category,
+          description,
+        })
+        .then((res) => {
+          alert("Item added successfully");
+          // Clear form fields
+          setItemCode("");
+          setName("");
+          setPrice("");
+          setQuantity("");
+          setCategory("");
+          setDescription("");
+          setImage("");
+          setFormErrors({});
+        })
+        .catch((err) => {
+          alert(err);
+        });
     }
   };
 
@@ -160,6 +178,15 @@ const AddItem = () => {
           onChange={handleInputChange}
           error={formErrors["quantity"]}
           helperText={formErrors["quantity"]}
+        />
+        <TextField
+          sx={{ width: "70%", marginTop: 2 }}
+          label="Category"
+          name="category"
+          value={category}
+          onChange={handleInputChange}
+          error={formErrors["category"]}
+          helperText={formErrors["category"]}
         />
         <TextField
           sx={{ width: "70%", marginTop: 2 }}
