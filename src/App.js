@@ -4,7 +4,8 @@ import DashboardContent from "./pages/admin/dashboardLayout";
 import DashboardLayout from "./pages/user/dashboardLayout";
 import SingleProduct from "./pages/user/singleProduct";
 import ContactUs from "./pages/user/contactUs";
-import Login from "./pages/common/login";
+import Login from "./pages/common/modal/login";
+import Register from "./pages/common/modal/register";
 import AboutUs from "./pages/user/aboutUs";
 import AllProducts from "./pages/user/allProducts";
 import ShoppingCart from "./pages/user/shoppingCart";
@@ -24,6 +25,7 @@ function App() {
           </Route>
           <Route exact path="single" element={<SingleProduct />} />
           <Route exact path="login" element={<Login />} />
+          <Route exact path="register" element={<Register />} />
 
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />

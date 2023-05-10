@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import Login from "../../pages/common/modal/login";
+import Register from "../../pages/common/modal/register";
 const Navbar = () => {
   return (
     <div>
@@ -42,9 +44,13 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="d-flex align-items-center">
-          <a className="text-reset me-3" href="login">
-          <i class="fas fa-arrow-right-to-bracket"></i>
-            </a>
+            <div>
+              <Login />
+            </div>
+            <div>
+              <Register />
+            </div>
+
             <a className="text-reset me-3" href="shoppingCart">
               <i className="fas fa-shopping-cart" />
             </a>
