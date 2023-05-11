@@ -23,7 +23,7 @@ function App() {
             <Route exact path="home" element={<DashboardLayout />} />
             <Route exact path="admin" element={<DashboardContent />} />
           </Route>
-          <Route exact path="single" element={<SingleProduct />} />
+          <Route exact path="single/:id" element={<SingleProduct />} />
           <Route exact path="login" element={<Login />} />
           <Route exact path="register" element={<Register />} />
 

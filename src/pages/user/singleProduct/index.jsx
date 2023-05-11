@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
+import axios from "axios";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
+import { useParams } from "react-router";
 
-const index = () => {
+const Index = () => {
+
+  const params = useParams()
+  const [product, setproduct] = useState([]);
+
+  useEffect(() => {
+    //console.log(params.id)
+    axios
+      .get("http://localhost:5001/product/" + params.id)
+      .then((res) => {
+        setproduct(res.data);
+        //console.log(res.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[]);
+
   return (
     <div>
       <Navbar/>
@@ -12,7 +31,7 @@ const index = () => {
           {/*Grid column*/}
           <div className="col-md-6 mb-4">
             <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg"
+              src={product.image}
               className="img-fluid"
               alt=""
             />
@@ -24,29 +43,11 @@ const index = () => {
             <div className="p-4">
               <div className="mb-3">
                 <a href>
-                  <span className="badge bg-dark me-1">Category 2</span>
-                </a>
-                <a href>
-                  <span className="badge bg-info me-1">New</span>
-                </a>
-                <a href>
-                  <span className="badge bg-danger me-1">Bestseller</span>
+                  <span className="badge bg-dark me-1">{product.category}</span>
                 </a>
               </div>
               <p className="lead">
-                <span className="me-1">
-                  <del>$200</del>
-                </span>
-                <span>$100</span>
-              </p>
-              <strong>
-                <p style={{ fontSize: "20px" }}>Description</p>
-              </strong>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                dolor suscipit libero eos atque quia ipsa sint voluptatibus!
-                Beatae sit assumenda asperiores iure at maxime atque repellendus
-                maiores quia sapiente.
+                <span>Rs.{product.price}.00</span>
               </p>
               <form className="d-flex justify-content-left">
                 {/* Default input */}
@@ -121,4 +122,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
