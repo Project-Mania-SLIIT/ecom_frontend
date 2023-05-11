@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
   MDBCarousel,
   MDBCarouselItem,
@@ -12,6 +13,20 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function Home() {
+
+  const [product, setproduct] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5001/product")
+      .then((res) => {
+        setproduct(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
   return (
     <div>
       <div>
@@ -55,86 +70,23 @@ export default function Home() {
       </div>
       <div>
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/041.webp"
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/042.webp"
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
-                <MDBCardText>This is a short card.</MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/043.webp"
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/044.webp"
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-          <MDBCol>
-            <MDBCard className="h-100">
-              <MDBCardImage
-                src="https://mdbootstrap.com/img/new/standard/city/044.webp"
-                alt="..."
-                position="top"
-              />
-              <MDBCardBody>
-                <MDBCardTitle>Card title</MDBCardTitle>
-                <MDBCardText>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </MDBCardText>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
+          {product.map((prd) => (
+            <MDBCol>
+              <MDBCard className="h-100">
+                <MDBCardImage
+                  src={prd.image}
+                  alt="..."
+                  position="top"
+                />
+                <MDBCardBody>
+                  <MDBCardTitle>{prd.name}</MDBCardTitle>
+                  <MDBCardText>
+                    {prd.description}
+                  </MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          ))}
         </MDBRow>
       </div>
     </div>

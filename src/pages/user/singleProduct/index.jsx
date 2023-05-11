@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 import { useParams } from "react-router";
+import AddFeedbackModal from "../../../components/modals/Feedback/AddFeedbackModal"
 
 const Index = () => {
 
@@ -46,19 +47,20 @@ const Index = () => {
                   <span className="badge bg-dark me-1">{product.category}</span>
                 </a>
               </div>
-              <p className="lead">
-                <span>Rs.{product.price}.00</span>
-              </p>
+              <a href className="text-reset">
+                <h2 className="card-title mb-2">{product.name}</h2>
+              </a>
+              <h4 className="mb-3 price">Rs.{product.price}.00</h4>
               <form className="d-flex justify-content-left">
                 {/* Default input */}
-                <div className="form-outline me-1" style={{ width: "100px" }}>
+                <div className="form-outline me-5" style={{ width: "100px" }}>
                   <input
                     type="number"
                     defaultValue={1}
                     className="form-control"
                   />
                 </div>
-                <button className="btn btn-primary ms-1" type="submit">
+                <button className="btn btn-primary ms-5" type="submit">
                   Add to cart
                   <i className="fas fa-shopping-cart ms-1" />
                 </button>
@@ -72,52 +74,14 @@ const Index = () => {
         <hr />
         {/*Grid row*/}
         <div className="row d-flex justify-content-center">
-          {/*Grid column*/}
           <div className="col-md-6 text-center">
-            <h4 className="my-4 h4">Additional information</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              suscipit modi sapiente illo soluta odit voluptates, quibusdam
-              officia. Neque quibusdam quas a quis porro? Molestias illo neque
-              eum in laborum.
-            </p>
+            <AddFeedbackModal prodid={product.id}/>
           </div>
-          {/*Grid column*/}
         </div>
-        {/*Grid row*/}
-        {/*Grid row*/}
-        <div className="row">
-          {/*Grid column*/}
-          <div className="col-lg-4 col-md-12 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg"
-              className="img-fluid"
-              alt=""
-            />
-          </div>
-          {/*Grid column*/}
-          {/*Grid column*/}
-          <div className="col-lg-4 col-md-6 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg"
-              className="img-fluid"
-              alt=""
-            />
-          </div>
-          {/*Grid column*/}
-          {/*Grid column*/}
-          <div className="col-lg-4 col-md-6 mb-4">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg"
-              className="img-fluid"
-              alt=""
-            />
-          </div>
-          {/*Grid column*/}
-        </div>
-        {/*Grid row*/}
       </div>
-      <Footer/>
+      <div className="" style={{bottom:"0"}}>
+        <Footer/>
+      </div>
     </div>
   );
 };
