@@ -2,12 +2,60 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [show, setShow] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const validate = () => {
+    let isValidate = true;
+    const regexemail = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+
+    if (!formData.email || !regexemail.test(formData.email)) {
+      isValidate = false;
+      Swal.fire({
+        title: "Error!",
+        text: "Please enter a valid email address.",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
+    }
+    return isValidate;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validate()) {
+      await axios
+        .post("http://localhost:5002/login", {
+          formData,
+        })
+        .then((res) => {
+          Swal.fire({
+            title: "Success!",
+            text: "Login Successful",
+            icon: "success",
+            confirmButtonText: "Ok",
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            title: "Login Failed!",
+            text: err.response.data,
+            icon: "error",
+            confirmButtonText: "Ok",
+          });
+        });
+    }
+  };
 
   return (
     <>
@@ -26,17 +74,25 @@ export default function Login() {
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
-                autoFocus
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleSubmit}>
             Login
           </Button>
           <Button variant="primary" onClick={handleClose}>
