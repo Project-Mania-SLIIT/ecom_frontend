@@ -23,14 +23,14 @@ function App() {
             <Route exact path="home" element={<DashboardLayout />} />
             <Route exact path="admin" element={<DashboardContent />} />
           </Route>
-          <Route exact path="single/:id" element={<SingleProduct />} />
+          <Route exact path="/single/:id" element={<SingleProduct />} />
           <Route exact path="login" element={<Login />} />
           <Route exact path="register" element={<Register />} />
 
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
           <Route exact path="allProducts" element={<AllProducts />} />
-          <Route exact path="shoppingCart" element={<ShoppingCart />} />
+          <Route path="/shoppingCart" element={<ShoppingCart />} />
 
           {/* 404 page */}
           {/* <Route path="*" element={<Error404/>} /> */}

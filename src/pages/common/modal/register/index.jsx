@@ -99,7 +99,7 @@ export default function Register() {
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:5002/register", {
+        .post("http://localhost:5002/user/register", {
           formData,
         })
         .then((res) => {
