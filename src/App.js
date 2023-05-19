@@ -9,6 +9,7 @@ import Register from "./pages/common/modal/register";
 import AboutUs from "./pages/user/aboutUs";
 import AllProducts from "./pages/user/allProducts";
 import ShoppingCart from "./pages/user/shoppingCart";
+import UserReviews from "./pages/user/userReviews";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="aboutUs" element={<AboutUs />} />
           <Route exact path="/allProducts" element={<AllProducts />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
+          <Route path="/userreviews" element={<UserReviews />} />
 
           {/* 404 page */}
           {/* <Route path="*" element={<Error404/>} /> */}

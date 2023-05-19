@@ -87,6 +87,11 @@ const Navbar = () => {
                       </a>
                     </li>
                     <li>
+                      <a className="dropdown-item" href="/userreviews">
+                        Feedbacks
+                      </a>
+                    </li>
+                    <li>
                       <button
                         className="dropdown-item"
                         onClick={() => {
