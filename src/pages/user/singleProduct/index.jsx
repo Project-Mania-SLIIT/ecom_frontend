@@ -9,6 +9,8 @@ const Index = () => {
 
   const params = useParams()
   const [product, setproduct] = useState([]);
+  const productId=params.id;
+  const[quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     //console.log(params.id)
@@ -22,6 +24,34 @@ const Index = () => {
         console.log(err);
       });
   },[]);
+
+  const cartData = {
+    userId: localStorage.getItem('user_id'),
+    products: [
+      {
+        product: productId,
+        quantity: quantity
+      }
+    ]
+  };
+
+  const handleAddCart = () => {
+    axios.post("http://localhost:5004/api/cart",cartData).then(function(response){
+      console.log(response);
+    }).catch(function(err){
+      console.log(err);
+    })
+  }
+  // axios
+  //   .get(`http://localhost:3005/api/cart/getTotalPrice/${localStorage.getItem('user_id')}`)
+  //   .then((response) => {
+  //     // console.log(response.data);
+  //     setTotalPrice(response.data.totalPrice)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+
 
   return (
     <div>
@@ -58,9 +88,11 @@ const Index = () => {
                     type="number"
                     defaultValue={1}
                     className="form-control"
+                    value={quantity}
+                    onChange={(e)=>{setQuantity(e.target.value)}}
                   />
                 </div>
-                <button className="btn btn-primary ms-5" type="submit">
+                <button className="btn btn-primary ms-5" type="submit" onClick={handleAddCart}> 
                   Add to cart
                   <i className="fas fa-shopping-cart ms-1" />
                 </button>

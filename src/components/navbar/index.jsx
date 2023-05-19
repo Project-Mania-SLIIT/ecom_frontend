@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 import Login from "../../pages/common/modal/login";
 import Register from "../../pages/common/modal/register";
+import { Link } from "react-router-dom";
+import shoppingCart from "../../pages/user/shoppingCart";
 const Navbar = () => {
   return (
     <div>
@@ -22,22 +24,22 @@ const Navbar = () => {
             <div className="logo">PATIMedicals</div>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="home">
+                <a className="nav-link" href="/home">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="allProducts">
+                <a className="nav-link" href="/allProducts">
                   Products
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="aboutUs">
+                <a className="nav-link" href="/aboutUs">
                   About Us
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="contactUs">
+                <a className="nav-link" href="/contactUs">
                   Contact Us
                 </a>
               </li>
@@ -55,7 +57,7 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <a className="text-reset me-3" href="shoppingCart">
+                <a className="text-reset me-3" href="/shoppingCart">
                   <i className="fas fa-shopping-cart" />
                 </a>
                 <div className="dropdown">
