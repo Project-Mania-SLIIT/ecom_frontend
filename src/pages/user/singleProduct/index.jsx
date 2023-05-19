@@ -36,7 +36,8 @@ const Index = () => {
   };
 
   const handleAddCart = () => {
-    axios.post("http://localhost:5004/api/cart",cartData).then(function(response){
+    console.log(cartData)
+    axios.post("http://localhost:5004/api/cart/",cartData).then(function(response){
       console.log(response);
     }).catch(function(err){
       console.log(err);

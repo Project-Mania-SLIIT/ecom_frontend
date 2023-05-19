@@ -50,9 +50,9 @@ export default function Login() {
             icon: "success",
             confirmButtonText: "Ok",
           }).then(() => {
-            if (res.data.type === "admin") {
+            if (res.data.user.type === "admin") {
               window.location.href = "/seller/dashboard";
-            } else if (res.data.type === "supplier") {
+            } else if (res.data.user.type === "supplier") {
               window.location.href = "/seller/dashboard";
             } else {
               window.location.href = "/home";
