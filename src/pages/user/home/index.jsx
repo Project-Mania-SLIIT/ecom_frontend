@@ -68,7 +68,7 @@ export default function Home() {
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
           {product.map((prd) => (
             <MDBCol>
-              <MDBCard className="h-100">
+              <MDBCard className="h-100" style={{ width: "300px", height:"300px" }}>
                 <MDBCardImage
                   src={prd.image}
                   alt="..."

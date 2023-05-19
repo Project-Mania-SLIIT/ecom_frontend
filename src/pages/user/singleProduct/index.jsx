@@ -97,8 +97,8 @@ const Index = () => {
         {/*Grid row*/}
         <div className="row">
           {/*Grid column*/}
-          <div className="col-md-6 mb-4">
-            <img src={product.image} className="img-fluid" alt="" />
+          <div className="col-md-6 mb-4" >
+            <img src={product.image} className="img-fluid" alt="" style={{ width: "250px", height:"250px" }}/>
           </div>
           {/*Grid column*/}
           {/*Grid column*/}
@@ -162,13 +162,13 @@ const Index = () => {
             <MDBCardBody key={fb.feedbackId} > 
               <div className="d-flex justify-content-between">
                 <div className="d-flex flex-row">
-                  <div className="ms-3">
+                  <div className="">
                     <MDBTypography tag="h6" className="font-italic"><i class="fa fa-share" aria-hidden="true"></i> {fb.userEmail}</MDBTypography>
                     <p className="large mb-0 font-weight-bold"><i class="fa fa-star" aria-hidden="true"></i> {fb.satisfaction_rate}/10</p>
                   </div>
                 </div>
                 <div className="d-flex flex-row">
-                  <div style={{ width: "1000px" }}>
+                  <div style={{ width: "900px" }}>
                     <MDBTypography tag="h6" className="fw-normal mb-0">
                     <i class="fa fa-comments" aria-hidden="true"></i> {fb.message}
                     </MDBTypography>

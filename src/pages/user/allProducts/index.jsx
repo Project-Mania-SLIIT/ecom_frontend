@@ -89,7 +89,7 @@ const AllProducts = () => {
                           className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                           data-mdb-ripple-color="light"
                         >
-                          <img src={prd.image} className="w-100" />
+                          <img src={prd.image} className="w-100" style={{ width: "200px", height:"200px" }}/>
                         </div>
                       </a>
                       <div className="card-body">

@@ -47,7 +47,7 @@ export default function index() {
         {/* {feedback.feedbackId} */}
         {feedback.map((fb) => (
             <tr key={fb.feedbackId}>
-              <td><img src={fb.productImage}/></td>
+              <td><img src={fb.productImage} style={{ width: "50px", height:"50px" }}/></td>
               <td>{fb.productName}</td>
               <td>{fb.userEmail}</td>
               <td>{fb.satisfaction_rate}</td>
