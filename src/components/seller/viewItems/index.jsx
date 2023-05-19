@@ -13,6 +13,7 @@ import { ReactComponent as ArrowIcon } from "../../../assets/icons/arrow.svg";
 import { ReactComponent as DeleteIcon } from "../../../assets/icons/delete-icon.svg";
 import { ReactComponent as EditIcon } from "../../../assets/icons/edit-icon.svg";
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 //
 export default function ViewItems() {
@@ -33,6 +34,43 @@ export default function ViewItems() {
         console.log(err);
       });
   }, []);
+
+  function deleteHandler(id) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.value === true) {
+        axios
+        .delete("http://localhost:5001/product/supplier/"+id).then((res) => {
+          if (res) {
+            Swal.fire({
+              title: "Success!",
+              text: "Your file has been deleted",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500,
+            }).then(() => {
+              window.location.reload();
+            });
+          } else {
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong",
+              icon: "error",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+      }
+    });
+  }
 
   return (
     <TableContainer component={Paper}>
@@ -88,9 +126,9 @@ export default function ViewItems() {
               <TableCell align="left">
                 <Box>
                   <IconButton
-                  // onClick={() => {
-                  //   handleDeleteClick(product._id);
-                  // }}
+                  onClick={() => {
+                    deleteHandler(product._id);
+                  }}
                   >
                     <DeleteIcon />
                   </IconButton>

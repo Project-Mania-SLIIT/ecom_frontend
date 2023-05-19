@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { LoadingOverlay } from "@mantine/core";
+import Swal from 'sweetalert2'
 
 const ViewItem = () => {
   const location = useLocation();
@@ -175,7 +176,13 @@ const ViewItem = () => {
       axios
         .put("http://localhost:5001/product/supplier/" + id, data)
         .then((res) => {
-          alert("Item updated successfully");
+          Swal.fire({
+            title: "Success!",
+            text: "Your file has been deleted",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          })
           setIsDisable(true);
         });
 

@@ -9,6 +9,7 @@ import Register from "./pages/common/modal/register";
 import AboutUs from "./pages/user/aboutUs";
 import AllProducts from "./pages/user/allProducts";
 import ShoppingCart from "./pages/user/shoppingCart";
+import NotFound from "./pages/common/notfound";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
           <Route path="/shoppingCart" element={<ShoppingCart />} />
 
           {/* 404 page */}
-          {/* <Route path="*" element={<Error404/>} /> */}
+           <Route path="*" element={<NotFound/>} />
         </Routes>
       </Router>
     </div>

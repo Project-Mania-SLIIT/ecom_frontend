@@ -113,7 +113,11 @@ function DashboardContent() {
   const renderComponent = () => {
     switch (pathName) {
       case "dashboard":
-        return <Box></Box>;
+        return <Box><div>
+        <h1>Welcome to the Admin Dashboard</h1>
+        <img src='https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Image.png' alt="Admin" />
+        {/* Add other content or components for your dashboard */}
+      </div></Box>;
       case "viewitems":
         return <ViewItems />;
       case "additem":

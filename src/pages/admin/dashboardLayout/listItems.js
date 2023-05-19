@@ -25,6 +25,12 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Products" />
     </ListItemButton>
+    <ListItemButton onClick={() => (window.location.href = '/seller/additem')}>
+      <ListItemIcon>
+        <AssignmentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Add Product +" />
+    </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <ShoppingCartIcon />
