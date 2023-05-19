@@ -21,7 +21,7 @@ const Navbar = () => {
             <i className="fas fa-bars" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <div className="logo">PATIMedicals</div>
+            <div className="logo">PATIMedicals  </div>
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" href="/home">

@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
+import about from "../../../assets/images/aboutus.jpg"
 
 const index = () => {
   return (
@@ -15,13 +16,14 @@ const index = () => {
         <br />
         <section>
           <div className="row">
-            <div className=" col-md-5 gx-5 mb-2">
+            <div className="col-md-3"></div>
+            <div className=" col-md-6 gx-5 mb-3">
               <div
                 className=" bg-image hover-overlay ripple shadow-2-strong rounded-6 "
                 data-mdb-ripple-color="light"
               >
                 <img
-                  src="https://www.pcclean.io/wp-content/gallery/library-hd-wallpapers/919004.jpg"
+                  src={about}
                   className="img-fluid "
                 />
               </div>
