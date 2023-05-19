@@ -5,21 +5,7 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
-
-// const useStyles = makeStyles((theme) => ({
-//   form: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//   },
-//   field: {
-// margin: theme.spacing(1),
-// minWidth: 300,
-//   },
-//   button: {
-//     margin: theme.spacing(2),
-//   },
-// }));
+import { LoadingOverlay } from "@mantine/core";
 
 const AddItem = () => {
   const [itemCode, setItemCode] = useState("");
@@ -30,6 +16,50 @@ const AddItem = () => {
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
   const [formErrors, setFormErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    try {
+      setIsLoading(true);
+      const file = e.target.files[0];
+
+      if (!file) return alert("File not exist.");
+
+      if (file.size > 1024 * 1024)
+        // 1mb
+        return alert("Size too large!");
+
+      if (file.type !== "image/jpeg" && file.type !== "image/png")
+        // 1mb
+        return alert("File format is incorrect.");
+
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "carengo");
+      formData.append("cloud_name", "itp2022");
+
+      // setLoading(true)
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/itp2022/image/upload",
+        formData,
+        {
+          method: "post",
+          body: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
+      // setLoading(false)
+      console.log(res.data.url);
+      setImage(res.data.url);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err.response.data.msg);
+      setIsLoading(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -100,11 +130,6 @@ const AddItem = () => {
       errors["description"] = "Please enter a description";
     }
 
-    // if (!image) {
-    //   formIsValid = false;
-    //   errors["image"] = "Please enter an image URL";
-    // }
-
     setFormErrors(errors);
     return formIsValid;
   };
@@ -121,6 +146,7 @@ const AddItem = () => {
           quantity,
           category,
           description,
+          image,
         })
         .then((res) => {
           alert("Item added successfully");
@@ -142,6 +168,7 @@ const AddItem = () => {
 
   return (
     <Box>
+      <LoadingOverlay visible={isLoading} overlayBlur={2} />
       <form onSubmit={handleSubmit}>
         <TextField
           sx={{ width: "70%", marginTop: 2 }}
@@ -228,6 +255,7 @@ const AddItem = () => {
             multiple
             type="file"
             hidden
+            onChange={handleImageChange}
           />
           <label htmlFor="images-input">
             <Button
@@ -248,6 +276,16 @@ const AddItem = () => {
               </Typography>
             </Button>
           </label>
+          {image && (
+            <Box
+              sx={{
+                mb: 2,
+                ml: 5,
+              }}
+            >
+              <img src={image} width={100} height={100} alt="Product image" />
+            </Box>
+          )}
         </Box>
         <Button variant="contained" color="primary" type="submit">
           Add Product
