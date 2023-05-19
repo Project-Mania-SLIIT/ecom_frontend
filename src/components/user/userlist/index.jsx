@@ -5,6 +5,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 import Paper from "@mui/material/Paper";
 import axios from "axios";
 import { IconButton } from "@mui/material";
@@ -15,19 +17,37 @@ import { ReactComponent as EditIcon } from "../../../assets/icons/edit-icon.svg"
 import { useNavigate } from "react-router-dom";
 
 //
-export default function ViewItems() {
+export default function UserList() {
   //
-  const [productList, setProductList] = React.useState([]);
+  const [userList, setUserList] = React.useState([]);
   const navigate = useNavigate();
+
+  const handleChange = (event, id) => {
+    console.log(id, event.target.value);
+    axios
+      .put("http://localhost:5002/user/updatetype/" + id, {
+        type: event.target.value,
+      })
+      .then((res) => {
+        alert("Item updated successfully");
+        axios
+          .get("http://localhost:5002/user/all")
+          .then((res) => {
+            setUserList(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      });
+  };
 
   // Swal.fire({ title: 'Are you sure?', text: "You won't be able to revert this!", icon: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33', confirmButtonText: 'Yes, delete it!'}).then((result) => { if (result.isConfirmed) { Swal.fire( 'Deleted!', 'Your file has been deleted.', 'success' ) }
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:5001/")
+      .get("http://localhost:5002/user/all")
       .then((res) => {
-        console.log(res.data);
-        setProductList(res.data);
+        setUserList(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -40,67 +60,54 @@ export default function ViewItems() {
         <TableHead>
           <TableRow>
             <TableCell align="left" sx={{ color: "#001EB9" }}>
-              PRODUCT&nbsp;CODE
+              NAME{" "}
             </TableCell>
             <TableCell align="left" sx={{ color: "#001EB9" }}>
-              IMAGE
+              CONTACT NUMBER
             </TableCell>
             <TableCell align="left" sx={{ color: "#001EB9" }}>
-              PRODUCT&nbsp;NAME
+              EMAIL
             </TableCell>
             <TableCell align="left" sx={{ color: "#001EB9" }}>
-              PRICE
+              ADDRESS
             </TableCell>
             <TableCell align="left" sx={{ color: "#001EB9" }}>
-              QUANTITY
-            </TableCell>
-            <TableCell align="left" sx={{ color: "#001EB9" }}>
-              ACTION
+              USER TYPE
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {productList.map((product) => (
+          {userList.map((user) => (
             <TableRow
-              key={product._id}
+              key={user._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row" align="left">
-                {product.itemCode ? product.itemCode : "N/A"}
+                {user.name ? user.name : "N/A"}
               </TableCell>
               <TableCell align="left">
-                <img
-                  src={product.image ? product.image : "N/A"}
-                  width={100}
-                  height={100}
-                  alt="Product image"
-                />
+                {user.contactNumber ? user.contactNumber : "N/A"}
               </TableCell>
               <TableCell align="left">
-                {product.name ? product.name : "N/A"}
+                {user.email ? user.email : "N/A"}
               </TableCell>
               <TableCell align="left">
-                {product.price ? product.price : "N/A"}
-              </TableCell>
-              <TableCell align="left">
-                {product.quantity ? product.quantity : "N/A"}
+                {user.address ? user.address : "N/A"}
               </TableCell>
               <TableCell align="left">
                 <Box>
-                  <IconButton
-                  // onClick={() => {
-                  //   handleDeleteClick(product._id);
-                  // }}
+                  <Select
+                    labelId="demo-simple-select-autowidth-label"
+                    id="demo-simple-select-autowidth"
+                    value={user.type}
+                    onChange={(e) => handleChange(e, user._id)}
+                    autoWidth
+                    label="Type"
                   >
-                    <DeleteIcon />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => {
-                      navigate(`/seller/viewitem/${product._id}`);
-                    }}
-                  >
-                    <EditIcon />
-                  </IconButton>
+                    <MenuItem value="user">User</MenuItem>
+                    <MenuItem value="supplier">Supplier</MenuItem>
+                    <MenuItem value="admin">Admin</MenuItem>
+                  </Select>
                 </Box>
               </TableCell>
             </TableRow>

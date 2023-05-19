@@ -39,13 +39,24 @@ export default function Login() {
           formData,
         })
         .then((res) => {
-          console.log(res.data.user._id)
-          localStorage.setItem('user_id',res.data.user._id)
+          localStorage.setItem("user_id", res.data.user._id);
+          localStorage.setItem("type", res.data.user.type);
+          localStorage.setItem("name", res.data.user.name);
+          localStorage.setItem("email", res.data.user.email);
+          localStorage.setItem("token", res.data.token);
           Swal.fire({
             title: "Success!",
             text: "Login Successful",
             icon: "success",
             confirmButtonText: "Ok",
+          }).then(() => {
+            if (res.data.type === "admin") {
+              window.location.href = "/seller/dashboard";
+            } else if (res.data.type === "supplier") {
+              window.location.href = "/seller/dashboard";
+            } else {
+              window.location.href = "/home";
+            }
           });
         })
         .catch((err) => {
