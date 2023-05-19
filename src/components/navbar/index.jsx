@@ -91,7 +91,7 @@ const Navbar = () => {
                         className="dropdown-item"
                         onClick={() => {
                           localStorage.clear();
-                          window.location.reload();
+                          window.location = "/home";
                         }}
                       >
                         Logout
