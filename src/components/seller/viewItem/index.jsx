@@ -24,7 +24,7 @@ const ViewItem = () => {
 
   React.useEffect(() => {
     const pid = location.pathname.split("/")[3];
-    axios.get("http://localhost:5001/" + pid).then((res) => {
+    axios.get("http://localhost:5001/product/" + pid).then((res) => {
       setId(res.data._id);
       setItemCode(res.data.itemCode);
       setName(res.data.name);
@@ -172,10 +172,12 @@ const ViewItem = () => {
       };
 
       console.log(data);
-      axios.put("http://localhost:5001/supplier/" + id, data).then((res) => {
-        alert("Item updated successfully");
-        setIsDisable(true);
-      });
+      axios
+        .put("http://localhost:5001/product/supplier/" + id, data)
+        .then((res) => {
+          alert("Item updated successfully");
+          setIsDisable(true);
+        });
 
       // Clear form fields
       setItemCode("");

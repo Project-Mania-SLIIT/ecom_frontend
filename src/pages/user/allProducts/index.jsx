@@ -4,19 +4,18 @@ import Navbar from "../../../components/navbar";
 import Footer from "../../../components/footer";
 
 const AllProducts = () => {
-
   const [product, setproduct] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/product")
+      .get("http://localhost:5001/product/")
       .then((res) => {
         setproduct(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+  }, []);
 
   return (
     <div>
@@ -82,36 +81,31 @@ const AllProducts = () => {
           <section>
             <div className="text-center">
               <div className="row">
-              {product.map((prd) => (
-                <div key={prd._id} className="col-lg-3 col-md-6 mb-4">
-                  <div className="card">
-                    <a href={"single/"+prd._id}>
-                      <div
-                        className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-                        data-mdb-ripple-color="light"
-                      >
-                        <img
-                          src={prd.image}
-                          className="w-100"
-                        />
+                {product.map((prd) => (
+                  <div key={prd._id} className="col-lg-3 col-md-6 mb-4">
+                    <div className="card">
+                      <a href={"single/" + prd._id}>
+                        <div
+                          className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
+                          data-mdb-ripple-color="light"
+                        >
+                          <img src={prd.image} className="w-100" />
+                        </div>
+                      </a>
+                      <div className="card-body">
+                        <a href className="text-reset">
+                          <h5 className="card-title mb-2">{prd.name}</h5>
+                        </a>
+                        <a href className="text-reset ">
+                          <p>{prd.category}</p>
+                        </a>
+                        <h6 className="mb-3 price">Rs.{prd.price}.00</h6>
                       </div>
-                    </a>
-                    <div className="card-body">
-                      <a href className="text-reset">
-                        <h5 className="card-title mb-2">{prd.name}</h5>
-                      </a>
-                      <a href className="text-reset ">
-                        <p>{prd.category}</p>
-                      </a>
-                      <h6 className="mb-3 price">Rs.{prd.price}.00</h6>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
               </div>
-              <div className="row">
-
-              </div>
+              <div className="row"></div>
             </div>
           </section>
           <nav

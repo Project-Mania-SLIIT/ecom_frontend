@@ -139,15 +139,18 @@ const AddItem = () => {
     if (validate()) {
       console.log("Form submitted");
       await axios
-        .post("http://localhost:5001/supplier/6448b8c733f5af0064c7096b", {
-          itemCode,
-          name,
-          price,
-          quantity,
-          category,
-          description,
-          image,
-        })
+        .post(
+          "http://localhost:5001/product/supplier/6448b8c733f5af0064c7096b",
+          {
+            itemCode,
+            name,
+            price,
+            quantity,
+            category,
+            description,
+            image,
+          }
+        )
         .then((res) => {
           alert("Item added successfully");
           // Clear form fields

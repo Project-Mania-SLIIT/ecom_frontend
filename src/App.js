@@ -29,7 +29,7 @@ function App() {
 
           <Route exact path="contactUs" element={<ContactUs />} />
           <Route exact path="aboutUs" element={<AboutUs />} />
-          <Route exact path="allProducts" element={<AllProducts />} />
+          <Route exact path="/allProducts" element={<AllProducts />} />
           <Route path="/shoppingCart" element={<ShoppingCart />} />
 
           {/* 404 page */}
