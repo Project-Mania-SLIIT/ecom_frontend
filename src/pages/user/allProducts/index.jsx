@@ -20,26 +20,6 @@ const AllProducts = () => {
   return (
     <div>
       <Navbar />
-      <div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-mdb-target="#carouselExampleCaptions"
-          data-mdb-slide="prev"
-        >
-          <span className="carousel-control-prev-icon" aria-hidden="true" />
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-mdb-target="#carouselExampleCaptions"
-          data-mdb-slide="next"
-        >
-          <span className="carousel-control-next-icon" aria-hidden="true" />
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
       <main>
         <div className="container">
           <nav
@@ -73,17 +53,17 @@ const AllProducts = () => {
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Shirts
+                      Medicines
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Sport wears
+                      Herbal Cosmetics
                     </a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link text-white" href="#">
-                      Outwears
+                      Toiletries
                     </a>
                   </li>
                 </ul>
@@ -109,7 +89,7 @@ const AllProducts = () => {
                           className="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
                           data-mdb-ripple-color="light"
                         >
-                          <img src={prd.image} className="w-100" />
+                          <img src={prd.image} className="w-100" style={{ width: "200px", height:"200px" }}/>
                         </div>
                       </a>
                       <div className="card-body">

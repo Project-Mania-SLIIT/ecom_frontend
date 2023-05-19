@@ -11,6 +11,10 @@ import {
   MDBRow,
   MDBCardTitle,
 } from "mdb-react-ui-kit";
+import cs1 from "../../../assets/images/carousel1.jpg"
+import cs2 from "../../../assets/images/carousel2.jpg"
+import cs3 from "../../../assets/images/carousel3.jpg"
+
 
 export default function Home() {
 
@@ -34,31 +38,23 @@ export default function Home() {
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={1}
-            src="https://mdbootstrap.com/img/new/slides/041.jpg"
+            src={cs1}
             alt="..."
           >
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={2}
-            src="https://mdbootstrap.com/img/new/slides/042.jpg"
+            src={cs2}
             alt="..."
           >
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </MDBCarouselItem>
           <MDBCarouselItem
             className="w-100 d-block"
             itemId={3}
-            src="https://mdbootstrap.com/img/new/slides/043.jpg"
+            src={cs3}
             alt="..."
           >
-            <h5>Third slide label</h5>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
           </MDBCarouselItem>
         </MDBCarousel>
       </div>
@@ -72,7 +68,7 @@ export default function Home() {
         <MDBRow className="row-cols-1 row-cols-md-5 g-4">
           {product.map((prd) => (
             <MDBCol>
-              <MDBCard className="h-100">
+              <MDBCard className="h-100" style={{ width: "300px", height:"300px" }}>
                 <MDBCardImage
                   src={prd.image}
                   alt="..."
