@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import { LoadingOverlay } from "@mantine/core";
 
 const ViewItem = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const ViewItem = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isDisable, setIsDisable] = useState(true);
   const [id, setId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   React.useEffect(() => {
     const pid = location.pathname.split("/")[3];
@@ -33,6 +35,49 @@ const ViewItem = () => {
       setImage(res.data.image);
     });
   }, [location.pathname, isDisable]);
+
+  const handleImageChange = async (e) => {
+    e.preventDefault();
+    try {
+      setIsLoading(true);
+      const file = e.target.files[0];
+
+      if (!file) return alert("File not exist.");
+
+      if (file.size > 1024 * 1024)
+        // 1mb
+        return alert("Size too large!");
+
+      if (file.type !== "image/jpeg" && file.type !== "image/png")
+        // 1mb
+        return alert("File format is incorrect.");
+
+      let formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", "carengo");
+      formData.append("cloud_name", "itp2022");
+
+      // setLoading(true)
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/itp2022/image/upload",
+        formData,
+        {
+          method: "post",
+          body: formData,
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      );
+      // setLoading(false)
+      console.log(res.data.url);
+      setImage(res.data.url);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err.response.data.msg);
+      setIsLoading(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -146,6 +191,7 @@ const ViewItem = () => {
 
   return (
     <Box>
+      <LoadingOverlay visible={isLoading} overlayBlur={2} />
       <form onSubmit={handleSubmit}>
         <Box>
           <img
@@ -246,6 +292,7 @@ const ViewItem = () => {
             type="file"
             hidden
             disabled={isDisable}
+            onChange={handleImageChange}
           />
           <label htmlFor="images-input" hidden={isDisable}>
             <Button

@@ -27,6 +27,7 @@ import ViewItems from "../../../components/seller/viewItems";
 import { useLocation } from "react-router-dom";
 import AddItem from "../../../components/seller/addItem";
 import ViewItem from "../../../components/seller/viewItem";
+import UserList from "../../../components/user/userlist";
 
 function Copyright(props) {
   return (
@@ -119,6 +120,8 @@ function DashboardContent() {
         return <AddItem />;
       case "viewitem":
         return <ViewItem />;
+      case "users":
+        return <UserList />
       default:
         return null;
     }

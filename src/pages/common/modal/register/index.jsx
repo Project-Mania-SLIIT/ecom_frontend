@@ -96,10 +96,11 @@ export default function Register() {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formData);
     e.preventDefault();
     if (validate()) {
       await axios
-        .post("http://localhost:5002/register", {
+        .post("http://localhost:5002/user/register", {
           formData,
         })
         .then((res) => {
