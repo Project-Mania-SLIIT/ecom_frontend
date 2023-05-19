@@ -121,7 +121,7 @@ function DashboardContent() {
       case "viewitem":
         return <ViewItem />;
       case "users":
-        return <UserList />
+        return <UserList />;
       default:
         return null;
     }
@@ -206,7 +206,14 @@ function DashboardContent() {
               >
                 <MenuItem onClick={handleClose}>Profile</MenuItem>
                 <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    localStorage.clear();
+                    window.location.href = "/home";
+                  }}
+                >
+                  Logout
+                </MenuItem>
               </Menu>
               <Avatar
                 sx={{

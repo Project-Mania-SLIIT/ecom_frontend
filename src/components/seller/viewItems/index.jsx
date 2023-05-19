@@ -24,7 +24,7 @@ export default function ViewItems() {
 
   React.useEffect(() => {
     axios
-      .get("http://localhost:5001/")
+      .get("http://localhost:5001/product")
       .then((res) => {
         console.log(res.data);
         setProductList(res.data);
